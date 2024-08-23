@@ -16,14 +16,13 @@ const App = () => {
     // Binding keyboard with the browser app
     !isEventAttached.current &&
       window.addEventListener("keypress", (e) => {
-        console.log(e);
         const value = e.key;
         if (e.code.includes("Key")) {
           return;
         }
         buttonAction(value);
       });
-    console.log("attached...");
+
     isEventAttached.current = true;
   }, []);
   const buttonAction = (value) => {
@@ -77,8 +76,6 @@ const App = () => {
     }
     const total = eval(strToDisplay) + extraValue;
     setStrToDisplay(total.toString());
-
-    //   console.log(total);
   };
 
   const randomValue = () => {
@@ -87,7 +84,6 @@ const App = () => {
   };
 
   const handleOnButtonClick = (value) => {
-    // console.log(value);
     setIsMouseDown();
     buttonAction(value);
   };
@@ -95,7 +91,7 @@ const App = () => {
   const handleOnMouseDown = (value) => {
     setIsMouseDown(value);
   };
-  console.log(isMouseDown);
+
   const btns = [
     { cls: "btn-ac", label: "AC" },
     { cls: "btn-c", label: "C" },
